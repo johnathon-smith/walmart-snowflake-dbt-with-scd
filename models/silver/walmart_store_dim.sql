@@ -2,8 +2,8 @@
     config(
         materialized = 'incremental',
         incremental_strategy = 'merge',
-        unique_id = ['store_id','dept_id'],
-        merge_exclude_columns = ['insert_date'],
+        unique_key = ['STORE_ID','DEPT_ID'],
+        merge_exclude_columns = ['INSERT_DATE'],
         schema = 'SILVER'
     )
 }}
@@ -27,8 +27,8 @@ STORES AS (
 
 WALMART_STORE_MERGE AS (
     SELECT
-        D.STORE_ID,
-        D.DEPT_ID,
+        D.STORE_ID AS STORE_ID,
+        D.DEPT_ID AS DEPT_ID,
         S.TYPE AS STORE_TYPE,
         S.SIZE AS STORE_SIZE,
         CURRENT_TIMESTAMP() AS INSERT_DATE,
