@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+    - name: RAW
+      schema: BRONZE
+      tables:
+        - name: DEPARTMENTS_RAW
+        - name: STORES_RAW
+        - name: FACTS_RAW
+    
+    - name: DIM
+      schema: SILVER
+      tables:
+        - name: WALMART_STORE_DIM
+        - name: WALMART_DATE_DIM
